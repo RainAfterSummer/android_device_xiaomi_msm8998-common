@@ -145,6 +145,11 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     external/ant-wireless/antradio-library/com.dsi.ant.antradio_library.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/com.dsi.ant.antradio_library.xml
 
+# Binder
+PRODUCT_PACKAGES += \
+		libhwbinder	\
+		libhidltransport
+
 # Camera
 PRODUCT_PACKAGES += \
     Snap
@@ -180,9 +185,11 @@ PRODUCT_PACKAGES += \
 
 # DRM
 PRODUCT_PACKAGES += \
-    android.hardware.drm@1.0-impl \
-    android.hardware.drm@1.0-service \
-    android.hardware.drm@1.2-service.clearkey
+		android.hardware.drm@1.0-impl \
+		android.hardware.drm@1.0-service \
+    android.hardware.drm@1.3-impl \
+    android.hardware.drm@1.3-service \
+    android.hardware.drm@1.3-service.clearkey
 
 # Fingerprint sensor
 PRODUCT_PACKAGES += \
@@ -221,7 +228,12 @@ PRODUCT_PACKAGES += \
 
 # IMS
 PRODUCT_PACKAGES += \
-    ims-ext-common_system
+    ims-ext-common_system	\
+		lib-rtpcommon \
+		lib-rtpcore \
+		lib-rtpdaemoninterface \
+		lib-rtpsl \
+		com.qualcomm.qti.uceservice@2.2 \
 
 PRODUCT_BOOT_JARS += \
     ims-ext-common_system
@@ -305,6 +317,9 @@ PRODUCT_COMPATIBLE_PROPERTY_OVERRIDE := true
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/privapp-permissions-qti.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/privapp-permissions-qti.xml \
     $(LOCAL_PATH)/configs/qti_whitelist.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/sysconfig/qti_whitelist.xml
+
+PRODUCT_PACKAGES += \
+		libqti_vndfwk_detect
 
 # QMI
 PRODUCT_PACKAGES += \
